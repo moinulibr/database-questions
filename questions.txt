@@ -1,113 +1,231 @@
 All questions
--------------------------
-
-Database Interview Questions (Structured & Complete)
-
-1. Basic Database Questions
+-------------------------1. Basic Concepts & Definitions
 
 What is a Database?
 
-What is a DBMS? What are its functions?
+What is DBMS and how is it different from RDBMS?
 
-What is the difference between SQL and NoSQL databases?
+What are tables and fields?
 
-Difference between RDBMS and DBMS?
+What are keys in a database?
 
-What is a primary key and foreign key?
+What is a primary key?
 
-2. Database Normalization Related Questions
+What is a foreign key?
 
-What is normalization? Why is it important?
+What is a candidate key?
 
-What are the different normal forms (1NF, 2NF, 3NF, BCNF)?
+What is a composite key?
 
-Difference between normalization and denormalization?
+What is a unique key?
 
-What are the advantages and disadvantages of normalization?
+What is a super key?
 
-What is a functional dependency?
+What is a surrogate key?
 
-3. Database Optimization / Performance Questions
+What is a NULL value in a database?
 
-What are indexes? How do they improve performance?
+What are constraints in SQL?
 
-What is the difference between clustered and non-clustered index?
+What is SQL and why is it used?
 
-When should you avoid using indexes?
+What is a query?
 
-What is query optimization? How does it work?
+What is a view?
 
-How do you analyze slow queries?
+What is a stored procedure?
 
-How to use EXPLAIN or EXPLAIN ANALYZE to debug queries?
+What is a function in SQL?
 
-What are database transactions?
+What is a trigger?
 
-What is ACID property in DBMS?
+What is an index?
 
-How do you prevent deadlocks?
+What is the difference between clustered and non-clustered indexes?
 
-4. Data Integrity & Constraints
+What are transactions?
 
-What is referential integrity?
+What is ACID property?
 
-What are different types of constraints in SQL? (NOT NULL, UNIQUE, CHECK, DEFAULT, etc.)
+What is a cursor?
 
-How do foreign key constraints help maintain integrity?
+What is the difference between DELETE, TRUNCATE, and DROP?
 
-5. Schema Design & Best Practices
+What is a schema in a database?
 
-What are surrogate keys vs natural keys?
+What are joins in SQL?
 
-How do you handle optional relationships in database schema?
+What are different types of joins? (INNER, LEFT, RIGHT, FULL)
 
-How do you model many-to-many relationships?
+What is a self join?
 
-How to design a flexible product variant table (e-commerce)?
+What is a cross join?
 
-What is the best way to store logs/audit trails in a relational DB?
+What is a subquery?
 
-6. Indexing in Depth
+What are correlated subqueries?
+
+What is the difference between WHERE and HAVING?
+
+What is the difference between CHAR and VARCHAR?
+
+What is a data type in SQL?
+
+What is normalization?
+
+Why is normalization important?
+
+What are the types of normalization? (1NF, 2NF, 3NF, BCNF)
+
+What is denormalization?
+
+What is the difference between normalization and denormalization?
+
+What is data integrity?
+
+What are default constraints?
+
+What are check constraints?
+
+What is the difference between UNION and UNION ALL?
+
+What is the difference between BETWEEN and IN operators?
+
+What is the purpose of GROUP BY?
+
+What are aggregate functions in SQL? (SUM, AVG, COUNT, etc.)
+
+2. Advanced SQL & Querying
+
+What is indexing and how does it improve performance?
 
 What is a covering index?
 
-What is index selectivity?
+What is a composite index?
 
-When do indexes slow performance?
+What are the disadvantages of indexing?
 
-Composite index vs multiple single-column indexes?
+What is query optimization?
 
-Indexing on low cardinality columns (e.g., gender)?
+How does the query planner/optimizer work in MySQL/PostgreSQL?
 
-7. Query Performance & Debugging
+What is an execution plan?
 
-Difference between WHERE vs HAVING?
+How to analyze slow queries in MySQL?
 
-UNION vs UNION ALL — performance?
+What is EXPLAIN and how is it used?
 
-Subquery vs JOIN — which is better and when?
+What are stored procedures vs functions?
 
-What are alternatives to IN clause for large datasets?
+What is a materialized view?
 
-How to optimize pagination queries?
+What are the differences between OLTP and OLAP?
 
-What is slow_query_log and how to use it?
+What is partitioning in databases?
 
-How to interpret EXPLAIN output (key, rows, type)?
+What is sharding?
 
-8. Transactions & Concurrency
+What are transactions and how are they managed in MySQL?
 
-Isolation levels: READ COMMITTED, REPEATABLE READ, etc.
+What is isolation level in transactions?
 
-What is Phantom Read?
+What are different isolation levels?
 
-What are Savepoints in transactions?
+What is a deadlock?
 
-How to prevent race conditions in concurrent DB access?
+How can you detect and resolve deadlocks?
 
-How does MySQL InnoDB handle row-level locking?
+How does row-level locking work?
 
-9. Real-World & Scenario-Based Questions
+What is optimistic vs pessimistic locking?
+
+What is a temporary table?
+
+What is the difference between temporary and derived tables?
+
+What is a sequence in SQL?
+
+What are common performance bottlenecks in relational databases?
+
+What are ways to improve database performance?
+
+What is query caching?
+
+What is database replication?
+
+What is the difference between vertical and horizontal scaling?
+
+What are stored procedures’ pros and cons?
+
+When not to use stored procedures?
+
+How does indexing impact write-heavy workloads?
+
+Explain the use of Common Table Expressions (CTEs)?
+
+Difference between CTE and subquery?
+
+What is a recursive CTE?
+
+Explain schema vs database vs table vs record?
+
+What is ENUM in MySQL?
+
+What is JSON datatype in MySQL or PostgreSQL?
+
+What are window functions in SQL? Provide examples of their use cases (e.g., ROW_NUMBER(), RANK(), LAG(), LEAD()).
+
+What is a LATERAL JOIN (PostgreSQL) or APPLY operator (SQL Server)? When are they useful?
+
+What are pivot and unpivot operations in SQL?
+
+How do you calculate running totals or moving averages in SQL?
+
+3. Practical & Real-World Scenarios
+
+How to design a database for a blog system (posts, comments, tags)?
+
+How would you design a database for a multi-vendor e-commerce system?
+
+How do you track changes in a large database table?
+
+How to handle versioning of records in DB?
+
+How to design a task management system schema?
+
+How to store product variants in a database?
+
+How do you handle soft deletes?
+
+What is the benefit of soft delete over hard delete?
+
+What is an audit trail and how do you implement it?
+
+How do you enforce referential integrity?
+
+How do you write a query to get the second highest salary from a table?
+
+How do you detect missing foreign keys or bad relationships in legacy databases?
+
+How to export/import large datasets in MySQL?
+
+How do you migrate a production database with zero downtime?
+
+What are the risks of schema changes in production and how to mitigate them?
+
+What steps do you take before deploying a DB change to production?
+
+What are the backup strategies for a critical DB?
+
+How do you restore data from a corrupted backup?
+
+How to use data warehouse along with transactional DB?
+
+How do you manage user access and roles in SQL?
+
+How to detect and remove duplicate rows from a table?
+
+What tools do you use for database version control?
 
 Suppose you have a slow-loading report. How will you find and fix it?
 
@@ -125,7 +243,57 @@ How to design a DB for a multi-tenant SaaS application?
 
 What precautions will you take while writing DELETE queries?
 
-10. MySQL-Specific Advanced Questions
+4. Database Administration & Maintenance
+
+Backup and Recovery:
+
+What are different backup strategies (full, incremental, differential)? When would you use each?
+
+How do you perform a point-in-time recovery?
+
+What is the importance of a disaster recovery plan for databases?
+
+Monitoring:
+
+What key metrics should you monitor for database health and performance?
+
+What tools do you use for database monitoring?
+
+Maintenance Tasks:
+
+What are routine database maintenance tasks? (e.g., reindexing, statistics updates)
+
+How do you identify and resolve database corruption?
+
+Security:
+
+What is role-based access control (RBAC) in a database context?
+
+How do you manage user permissions and privileges effectively?
+
+What are common security vulnerabilities beyond SQL injection, and how do you mitigate them?
+
+5. Cloud & Distributed Databases
+
+Cloud Database Services:
+
+What are the advantages and disadvantages of using cloud-managed database services (e.g., AWS RDS, Azure SQL Database)?
+
+What are serverless databases (e.g., AWS Aurora Serverless)? When are they suitable?
+
+Distributed Databases:
+
+What are the challenges of managing distributed databases?
+
+Explain eventual consistency in distributed systems.
+
+What is CAP theorem? How does it relate to database design?
+
+Polyglot Persistence:
+
+What is polyglot persistence? When would you consider using it?
+
+6. MySQL-Specific Advanced Questions
 
 MyISAM vs InnoDB — difference and use cases?
 
@@ -135,15 +303,13 @@ What is AUTO_INCREMENT and its limitation in scaling?
 
 How do TRIGGERS work in MySQL?
 
-Are materialized views available in MySQL?
-
-What are CTEs (Common Table Expressions) and how to use them?
+Are materialized views available in MySQL? (Note: While not native, they can be simulated)
 
 What is the performance difference between JOIN types in MySQL?
 
 MySQL memory & cache tuning — how to approach?
 
-11. NoSQL / MongoDB Specific Questions
+7. NoSQL / MongoDB Specific Questions
 
 What is document-based storage in MongoDB?
 
@@ -165,7 +331,7 @@ Difference between $lookup and embedded documents?
 
 Atomic operations in MongoDB — how do they work?
 
-12. Security-Based Questions
+8. Security-Based Questions
 
 What is SQL Injection and how to prevent it?
 
@@ -173,117 +339,46 @@ What is the role of prepared statements?
 
 Best practices for storing sensitive data (password, payment info)?
 
-13. Scaling & Big Data
+9. Emerging Database Technologies
 
-What is data sharding?
+Graph Databases:
 
-What is replication?
+What is a graph database? When would you use one (e.g., for social networks, recommendation engines)?
 
-Difference between vertical and horizontal scaling?
+Time-Series Databases:
 
-How to handle large datasets in web applications?
+What are time-series databases? Provide examples of their use cases.
 
-14. Bonus Problem-Solving Questions
+Vector Databases:
+
+What are vector databases, and how are they used in AI/ML applications?
+
+Blockchain Databases:
+
+Briefly explain the concept of blockchain databases.
+
+10. Debugging & Troubleshooting Scenarios
+
+High CPU Usage:
+
+Your database server's CPU usage is consistently high. What's your diagnostic approach?
+
+Disk I/O Bottlenecks:
+
+You suspect disk I/O is a bottleneck. How do you confirm this and what steps would you take to resolve it?
+
+Connection Pooling Issues:
+
+Users are reporting "connection pool exhausted" errors. How do you diagnose and fix this?
+
+Replication Lag:
+
+Your database replication is experiencing significant lag. What are the common causes and solutions?
+
+11. Bonus Problem-Solving Questions
 
 A customer complains of performance drop at peak hours — what’s your approach?
 
 You’ve been told to “speed up the app” — where do you start?
 
 What tools or metrics do you use to measure database performance?
-
-15. Database Administration & Maintenance
-
-Backup and Recovery:
-81. What are different backup strategies (full, incremental, differential)? When would you use each?
-82. How do you perform a point-in-time recovery?
-83. What is the importance of a disaster recovery plan for databases?
-
-Monitoring:
-84. What key metrics should you monitor for database health and performance?
-85. What tools do you use for database monitoring?
-
-Maintenance Tasks:
-86. What are routine database maintenance tasks? (e.g., reindexing, statistics updates)
-87. How do you identify and resolve database corruption?
-
-Security:
-88. What is role-based access control (RBAC) in a database context?
-89. How do you manage user permissions and privileges effectively?
-90. What are common security vulnerabilities beyond SQL injection, and how do you mitigate them?
-
-16. Cloud & Distributed Databases
-
-Cloud Database Services:
-91. What are the advantages and disadvantages of using cloud-managed database services (e.g., AWS RDS, Azure SQL Database)?
-92. What are serverless databases (e.g., AWS Aurora Serverless)? When are they suitable?
-
-Distributed Databases:
-93. What are the challenges of managing distributed databases?
-94. Explain eventual consistency in distributed systems.
-95. What is CAP theorem? How does it relate to database design?
-
-Polyglot Persistence:
-96. What is polyglot persistence? When would you consider using it?
-
-17. Advanced SQL & Querying
-
-Window Functions:
-97. What are window functions in SQL? Provide examples of their use cases (e.g., ROW_NUMBER(), RANK(), LAG(), LEAD()).
-
-Common Table Expressions (CTEs):
-98. How can CTEs improve query readability and maintainability?
-99. When would you use recursive CTEs?
-
-Advanced Joins:
-100. What is a LATERAL JOIN (PostgreSQL) or APPLY operator (SQL Server)? When are they useful?
-101. What is a self-join? Provide a real-world example.
-
-Analytical Functions:
-102. What are pivot and unpivot operations in SQL?
-103. How do you calculate running totals or moving averages in SQL?
-
-Triggers and Stored Procedures:
-104. What are stored procedures? What are their advantages and disadvantages?
-105. When would you choose a stored procedure over a direct application query?
-
-18. Data Warehousing & OLAP
-
-OLTP vs. OLAP:
-106. What is the fundamental difference between Online Transaction Processing (OLTP) and Online Analytical Processing (OLAP) systems?
-
-Data Warehouse Concepts:
-107. What is a data warehouse? How does it differ from an operational database?
-108. Explain star schema and snowflake schema.
-
-ETL:
-109. What is ETL (Extract, Transform, Load)? Describe its stages.
-
-Fact and Dimension Tables:
-110. What are fact tables and dimension tables in a data warehouse?
-
-Materialized Views:
-111. What are materialized views, and how do they benefit OLAP queries? What are their drawbacks?
-
-19. Emerging Database Technologies
-
-Graph Databases:
-112. What is a graph database? When would you use one (e.g., for social networks, recommendation engines)?
-
-Time-Series Databases:
-113. What are time-series databases? Provide examples of their use cases.
-
-Vector Databases:
-114. What are vector databases, and how are they used in AI/ML applications?
-
-Blockchain Databases:
-115. Briefly explain the concept of blockchain databases.
-
-20. Debugging & Troubleshooting Scenarios
-
-Your database server's CPU usage is consistently high. What's your diagnostic approach?
-
-You suspect disk I/O is a bottleneck. How do you confirm this and what steps would you take to resolve it?
-
-Users are reporting "connection pool exhausted" errors. How do you diagnose and fix this?
-
-Your database replication is experiencing significant lag. What are the common causes and solutions?
