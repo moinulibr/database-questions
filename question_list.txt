@@ -1,5 +1,6 @@
 All questions
--------------------------1. Basic Concepts & Definitions
+-------------------------
+1. Basic Concepts & Definitions
 
 What is a Database?
 
