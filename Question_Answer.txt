@@ -1,0 +1,537 @@
+1. Basic Database Concepts
+What is a Database?
+A database is an organized collection of structured information, or data, typically stored electronically in a computer system. It's designed to efficiently store, retrieve, manage, and update data. Think of it like a highly organized digital filing cabinet where you can quickly find, add, or change any piece of information you need.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Imagine you run a small local library.
+
+Without a database: You'd have shelves filled with physical books, and to find a specific book, you'd have to manually search through all the shelves. To know who borrowed which book, you'd check a physical register, which could be messy and hard to update.
+
+With a database: All the book information (title, author, genre, availability), member details (name, membership ID, borrowed books), and borrowing history are stored in a computer system. When a member wants a specific book, you just type the title into the computer, and it instantly tells you if it's available and where to find it. When a book is borrowed, the system automatically updates its status and records who borrowed it. This makes everything much faster and more accurate.
+
+What is a DBMS?
+DBMS stands for Database Management System. It's a software application that interacts with the user, other applications, and the database itself to capture and analyze data. A DBMS allows users to define, create, maintain, and control access to the database. It acts as an intermediary between the user and the database.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Consider our library example again. The DBMS is the actual software program (like MySQL, PostgreSQL, Oracle, SQL Server) that runs on the computer.
+
+The librarian uses an application built on top of the DBMS to search for books, add new members, or record book returns.
+
+The DBMS handles all the complex tasks in the background: figuring out how to store the data on the disk, ensuring multiple librarians can access the data at the same time without conflicts, and making sure the data stays consistent. You, as the librarian, don't directly manipulate raw files; you use the DBMS to interact with the data.
+
+What are the functions of DBMS?
+A DBMS performs several crucial functions to manage data effectively:
+
+Data Definition: It allows users to define the structure of the database, including the data types, relationships between tables, and constraints. (যেমন: আপনি ঠিক করেন যে বইয়ের নাম Text হবে, বইয়ের ID নম্বর হবে, আর প্রত্যেক বইয়ের একটি নির্দিষ্ট Author থাকবে।)
+
+Data Manipulation: It provides tools to insert, update, delete, and retrieve data from the database. (যেমন: নতুন বই যোগ করা, কোনো বইয়ের তথ্যে পরিবর্তন আনা, পুরোনো বই মুছে ফেলা, অথবা কোনো নির্দিষ্ট বই খুঁজে বের করা।)
+
+Data Security and Integrity: It ensures that data is accurate, consistent, and protected from unauthorized access. This includes enforcing constraints and managing user permissions. (যেমন: নিশ্চিত করা যে একটি বইয়ের ID নম্বর duplicate না হয়, বা শুধুমাত্র নির্দিষ্ট কর্মচারীরাই সদস্যের ব্যক্তিগত তথ্য দেখতে বা পরিবর্তন করতে পারে।)
+
+Data Storage Management: It manages how data is stored on disk and provides efficient ways to access it. (যেমন: কীভাবে ডেটা হার্ড ড্রাইভে সংরক্ষণ করা হবে এবং দ্রুত খুঁজে পাওয়া যাবে তার ব্যবস্থাপনা।)
+
+Data Backup and Recovery: It provides mechanisms to back up data and restore it in case of system failures or data loss. (যেমন: হঠাৎ করে বিদ্যুৎ চলে গেলে বা কম্পিউটার ক্র্যাশ করলে ডেটা যেন হারিয়ে না যায়, তার জন্য ব্যাকআপ রাখা এবং প্রয়োজনে তা পুনরুদ্ধার করা।)
+
+Concurrency Control: It manages simultaneous access by multiple users to the database, ensuring that data remains consistent even when multiple users are modifying it at the same time. (যেমন: একই সময়ে দুজন লাইব্রেরিয়ান যখন একই বইয়ের স্ট্যাটাস আপডেট করার চেষ্টা করছেন, তখন DBMS নিশ্চিত করবে যে কোনো ডেটা ওভাররাইট হয়ে না যায় বা ভুল তথ্য সংরক্ষণ না হয়।)
+
+Data Access: Provides interfaces for users and applications to access the data. (যেমন: SQL ব্যবহার করে ডেটা অ্যাক্সেস করা।)
+
+Difference between DBMS and RDBMS?
+The core difference lies in their data model.
+
+DBMS (Database Management System): This is a general term for any software system that manages databases. It can support various data models, including hierarchical, network, and relational models.
+
+RDBMS (Relational Database Management System): This is a specific type of DBMS that organizes data into tables (relations) consisting of rows and columns. It uses the relational model for data organization and management. Most modern databases you encounter, like MySQL, PostgreSQL, Oracle, SQL Server, are RDBMS.
+
+Key Differences Summarized:
+
+Feature	DBMS	RDBMS
+Data Model	Can support various models (hierarchical, network, relational, etc.)	Strictly uses the relational model (tables, rows, columns)
+Structure	Data stored as files or records.	Data stored in tables with defined relationships.
+Data Integrity	Less strict on integrity constraints.	Enforces ACID properties and integrity constraints (Primary Key, Foreign Key, etc.) strictly.
+Relationships	Relationships are often implicit.	Relationships between tables are explicitly defined using keys.
+Query Language	May use different query languages.	Primarily uses SQL (Structured Query Language).
+Scalability	Generally less scalable horizontally.	More scalable and better for complex queries.
+Examples	File system, XML databases, older mainframe databases.	MySQL, PostgreSQL, Oracle, SQL Server, SQLite.
+
+Export to Sheets
+Analogy (তুলনা):
+Imagine "Vehicles" as a DBMS. It's a broad category. "Cars," "Buses," "Motorcycles" are specific types of vehicles. In this analogy, "Cars" would be an RDBMS – a specific, structured type of vehicle with certain characteristics (four wheels, an engine, etc.) that follows a particular design principle. All RDBMS are DBMS, but not all DBMS are RDBMS.
+
+What is SQL?
+SQL stands for Structured Query Language. It is the standard language used for managing and manipulating relational databases. SQL is used to:
+
+Create database schemas (tables, views, etc.)
+
+Insert data into tables
+
+Query or retrieve data from tables
+
+Update existing data
+
+Delete data
+
+Control access to data (permissions)
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Think of SQL as the specific language you use to "talk" to the library's database (which is an RDBMS).
+
+To find all books by a specific author: SELECT * FROM Books WHERE Author = 'J.K. Rowling';
+
+To add a new book: INSERT INTO Books (BookID, Title, Author) VALUES (101, 'The New Adventures', 'Alice Smith');
+
+To update a book's title: UPDATE Books SET Title = 'The Really New Adventures' WHERE BookID = 101;
+
+To remove a book: DELETE FROM Books WHERE BookID = 101;
+
+Without SQL, interacting with a relational database would be like trying to manually sort through physical files – very difficult and inefficient.
+
+Difference between SQL and NoSQL?
+The main difference between SQL (Relational) and NoSQL (Not Only SQL) databases lies in their underlying data models and the types of problems they are designed to solve.
+
+Feature	SQL Databases (RDBMS)	NoSQL Databases
+Data Model	Relational model (tables, rows, columns, predefined schema)	Non-relational (document, key-value, column-family, graph)
+Schema	Rigid, predefined schema. Data must fit the schema.	Dynamic, flexible schema (schemaless). Can store varied data.
+Scalability	Primarily vertical scaling (more powerful server). Can scale horizontally but more complex.	Primarily horizontal scaling (distribute across many servers).
+ACID Properties	Supports ACID (Atomicity, Consistency, Isolation, Durability) strongly.	Often sacrifices some ACID properties for scalability and availability (BASE consistency).
+Query Language	SQL (Structured Query Language).	Diverse query languages, object-based APIs.
+Relationships	Strong emphasis on relationships between tables using joins.	Relationships are typically handled by embedding or linking, often avoiding complex joins.
+Use Cases	Complex transactions, financial systems, traditional business applications where data integrity is paramount.	Large datasets, real-time web apps, mobile apps, big data analytics, content management systems, flexible data structures.
+Examples	MySQL, PostgreSQL, Oracle, SQL Server, SQLite.	MongoDB (document), Cassandra (column-family), Redis (key-value), Neo4j (graph).
+
+Export to Sheets
+Analogy (তুলনা):
+
+SQL (RDBMS): Think of it like a highly organized spreadsheet or a collection of linked spreadsheets (tables). Every row has the same columns, and you define what each column holds. It's great when your data has a clear, consistent structure, and relationships between different pieces of data are important. (যেমন: একটি কোম্পানির হিসাবরক্ষণ সিস্টেম, যেখানে প্রতিটি লেনদেনের একটি নির্দিষ্ট ফর্ম্যাট থাকে।)
+
+NoSQL: Think of it more like a flexible folder system or a collection of JSON documents. You can throw different types of "documents" (data) into the same folder, and each document can have its own unique structure. It's great when your data is diverse, changes frequently, or you need to scale very quickly across many servers. (যেমন: একটি ব্লগ পোস্ট যেখানে কিছু পোস্টে ছবি আছে, কিছুতে ভিডিও আছে, আবার কিছুতে শুধু টেক্সট আছে – তাদের সবার গঠন একরকম না-ও হতে পারে।)
+
+What is a primary key?
+A primary key is a column or a set of columns in a table that uniquely identifies each row (record) in that table. It must satisfy two main conditions:
+
+Unique: No two rows can have the same primary key value.
+
+Not NULL: A primary key column cannot contain NULL values (i.e., it must always have a value).
+
+A table can have only one primary key. It's crucial for establishing relationships between tables.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+In a Students table:
+| StudentID (PK) | FirstName | LastName |      Email                | | :--------------- | :---------- | :--------- | :----------------------- | |S001          | Alice       | Smith      | alice.s@example.com      | |S002          | Bob         | Johnson    | bob.j@example.com        | |S003`           | Charlie     | Brown      | charlie.b@example.com    |
+
+Here, StudentID is the primary key.
+
+Every student has a unique StudentID (S001, S002, S003 are all different).
+
+No student can have a blank or missing StudentID.
+This ensures you can always precisely identify one specific student.
+
+What is a foreign key?
+A foreign key is a column or a set of columns in one table (the "child" table) that refers to the primary key of another table (the "parent" table). It establishes a link or relationship between two tables. The foreign key constraint ensures referential integrity, meaning that data in the foreign key column must match an existing value in the primary key column of the parent table, or be NULL.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Let's extend our library example. We have a Books table and a Borrowings table.
+
+Books table (Parent table):
+| BookID (PK) | Title           | Author    |
+| :------------ | :---------------- | :---------- |
+| B001        | The Great Novel   | Jane Doe    |
+| B002        | Coding Basics     | John Smith  |
+| B003        | History of Art    | Mary Green  |
+
+Borrowings table (Child table):
+| BorrowingID (PK) | BookID (FK) | MemberID | BorrowDate |
+| :----------------- | :------------ | :--------- | :----------- |
+| BR001            | B001        | M123     | 2025-07-15   |
+| BR002            | B003        | M456     | 2025-07-16   |
+| BR003            | B001        | M789     | 2025-07-17   |
+
+Here, BookID in the Borrowings table is a foreign key. It refers to the BookID (primary key) in the Books table.
+
+This link tells us which specific book (from the Books table) was borrowed in each transaction.
+
+The foreign key constraint ensures that you cannot record a borrowing for a BookID that does not exist in the Books table (e.g., you can't borrow a non-existent book).
+
+What is a unique key?
+A unique key is a column or a set of columns that ensures all values in that column (or combination of columns) are unique across all rows in the table. Unlike a primary key, a unique key:
+
+Can allow one NULL value (though some databases may vary on this).
+
+A table can have multiple unique keys.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+In a Users table:
+| UserID (PK) | Username (Unique) | Email (Unique)      | Password |
+| :------------ | :------------------ | :-------------------- | :--------- |
+| 1           | alice_fan           | alice@example.com     | **** |
+| 2           | bob_coder           | bob@example.com       | **** |
+| 3           | charlie_artist      | charlie@example.com   | **** |
+
+Here, Username and Email are both unique keys.
+
+No two users can have the same Username.
+
+No two users can have the same Email.
+
+A Username or Email could potentially be NULL (meaning a user hasn't set one yet, although in most real-world scenarios, email is usually required and not null).
+
+Difference between unique key and primary key?
+Feature	Primary Key	Unique Key
+Null Values	Cannot contain NULL values.	Can contain one NULL value (typically).
+Number per Table	Only one primary key per table.	Can have multiple unique keys per table.
+Purpose	Uniquely identifies each row and is used to establish relationships with other tables.	Ensures uniqueness of values in the column(s). Can also enforce uniqueness for alternative identifiers.
+Clustered Index	By default, a primary key creates a clustered index (organizes physical storage) in many RDBMS.	By default, creates a non-clustered index.
+
+Export to Sheets
+Analogy (তুলনা):
+Imagine a student ID card.
+
+The Student ID Number is like a Primary Key. Every student has a unique ID, and it's always present. It's the absolute official way to identify that student.
+
+The student's Email Address or Phone Number might be like a Unique Key. No two students should have the same email address, but it's possible one student might not have an email registered (NULL), or they could have multiple ways to contact them. You can use it to find a student, but it's not the "official" primary identifier.
+
+What is a composite key?
+A composite key (or compound key) is a primary key that consists of two or more attributes (columns) combined to uniquely identify each record in a table. No single column in the composite key is unique on its own, but their combination is.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Consider a table tracking Enrollments in a university system. A student can enroll in multiple courses, and a course can have multiple students. The combination of StudentID and CourseID would uniquely identify a specific enrollment.
+
+Enrollments table:
+| StudentID | CourseID | EnrollmentDate | Grade |
+| :---------- | :--------- | :--------------- | :------ |
+| S001      | C101     | 2025-09-01       | A       |
+| S001      | C102     | 2025-09-01       | B       |
+| S002      | C101     | 2025-09-02       | C       |
+
+Here, (StudentID, CourseID) together form the composite primary key.
+
+S001 alone is not unique (appears twice).
+
+C101 alone is not unique (appears twice).
+
+But (S001, C101) is unique, and (S001, C102) is unique, and so on. This combination uniquely identifies a student's enrollment in a particular course.
+
+What is a super key?
+A super key is any attribute or set of attributes that can uniquely identify a tuple (row) in a relation (table).
+
+It's the most general form of a key.
+
+A primary key is a super key.
+
+A candidate key is a super key.
+
+A super key can contain extra attributes that are not strictly necessary for uniqueness.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Using our Students table:
+| StudentID | FirstName | LastName | Email                 | Phone      |
+| :---------- | :---------- | :--------- | :---------------------- | :----------- |
+| S001      | Alice       | Smith      | alice.s@example.com     | 111-222-3333 |
+| S002      | Bob         | Johnson    | bob.j@example.com       | 444-555-6666 |
+
+Possible super keys for this table:
+
+(StudentID) - (This is also the primary key and candidate key)
+
+(Email) - (If unique, also a candidate key)
+
+(StudentID, FirstName) - This combination is unique, but FirstName is not needed.
+
+(StudentID, Email) - Unique, but Email is not needed for uniqueness if StudentID is already unique.
+
+(StudentID, FirstName, LastName, Email, Phone) - The entire row would be unique, but most columns are redundant for uniqueness.
+
+Any set of attributes that includes a candidate key is a super key.
+
+What is a candidate key?
+A candidate key is a minimal super key. "Minimal" means that if you remove any attribute from the candidate key, it will no longer be unique. In other words, it's an attribute or set of attributes that can uniquely identify a tuple, and no proper subset of it can also uniquely identify the tuple.
+
+A table can have one or more candidate keys.
+
+One of the candidate keys is chosen to be the primary key. The others become alternate keys.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+For our Students table:
+| StudentID | FirstName | LastName | Email                 |
+| :---------- | :---------- | :--------- | :---------------------- |
+| S001      | Alice       | Smith      | alice.s@example.com     |
+| S002      | Bob         | Johnson    | bob.j@example.com       |
+
+If StudentID is unique, and Email is also guaranteed to be unique for every student:
+
+(StudentID) is a candidate key (it's unique, and removing StudentID makes it not unique).
+
+(Email) is a candidate key (it's unique, and removing Email makes it not unique).
+
+In this scenario, we would typically choose StudentID as the primary key, and Email would then be an alternate key (a unique key that is not the primary key).
+
+What is a surrogate key?
+A surrogate key is an artificial or system-generated identifier for a row in a table. It has no intrinsic meaning related to the data it identifies. Surrogate keys are typically:
+
+Automatically generated by the database (e.g., auto-incrementing integers, UUIDs/GUIDs).
+
+Guaranteed to be unique.
+
+Often used as primary keys, especially when no natural primary key exists, or when natural keys are long, complex, or prone to change.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Imagine a table of Products where a product might naturally be identified by a complex combination of ProductName, Manufacturer, and ModelNumber. This could be a natural primary key.
+
+However, using a surrogate key would simplify things:
+
+Products table:
+| ProductID (Surrogate PK) | ProductName | Manufacturer | ModelNumber | Price |
+| :------------------------- | :------------ | :------------- | :------------ | :------ |
+| 1                        | Laptop Pro    | TechCorp       | XP-5000       | 1200.00 |
+| 2                        | Gaming Mouse  | GadgetCo       | GM-200        | 75.00   |
+
+Here, ProductID (an auto-incrementing integer) is a surrogate key. It's just a simple number generated by the database to identify each product, regardless of its name, manufacturer, or model number. This is often easier to manage and faster for joins than a complex natural key.
+
+What is a schema?
+In a database context, a schema refers to the logical structure or blueprint of the entire database. It defines how the data is organized, including:
+
+Tables: The names of tables.
+
+Columns: The names of columns in each table, their data types (e.g., integer, text, date), and properties (e.g., NOT NULL, UNIQUE).
+
+Relationships: The relationships between tables (e.g., foreign keys).
+
+Constraints: Rules that govern the data (e.g., primary keys, foreign keys, check constraints).
+
+Views, indexes, stored procedures, triggers, etc.
+
+Think of it as the framework or skeleton of the database, but without the actual data populated yet. It's the design that dictates how data can be stored.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Imagine you're designing a blueprint for a new house.
+
+The blueprint itself, showing where the walls, rooms, doors, windows, and plumbing lines go, is like the schema. It defines the structure and layout.
+
+The actual house built based on that blueprint, filled with furniture and people, is like the database instance with actual data.
+
+In SQL, you define a schema using DDL commands like CREATE TABLE, ALTER TABLE, etc.
+
+What is a view?
+A view is a virtual table based on the result-set of a SQL query. It does not store data itself; instead, it's a dynamic window into the data contained in one or more base tables. When you query a view, the underlying query that defines the view is executed, and the results are presented as if they were from a regular table.
+
+Views are used for:
+
+Simplifying complex queries: You can encapsulate complex joins and calculations into a simple view.
+
+Security: You can restrict user access to specific rows or columns of a table by creating a view that only shows allowed data.
+
+Data abstraction: Users don't need to know the underlying table structures.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+In our library database, the Books table might have many columns (e.g., BookID, Title, Author, Genre, Publisher, ISBN, PurchaseDate, Condition, Location).
+The librarian might often need to see just the Title, Author, and Availability for public display. Instead of writing a complex query every time, you can create a view:
+
+SQL
+
+CREATE VIEW AvailableBooks AS
+SELECT Title, Author,
+       CASE WHEN IsBorrowed = 0 THEN 'Available' ELSE 'Borrowed' END AS Status
+FROM Books;
+Now, the librarian can simply query: SELECT * FROM AvailableBooks; and see a simplified, ready-made list, without needing to know the complex CASE statement or all the other columns in the Books table. It's like a custom-filtered and pre-formatted report that updates automatically.
+
+What is metadata?
+Metadata is "data about data." It describes the characteristics and structure of the data stored in a database, rather than the content of the data itself.
+
+Examples of metadata include:
+
+Table names
+
+Column names and their data types
+
+Constraints (primary keys, foreign keys, unique keys)
+
+Indexes
+
+Relationships between tables
+
+Permissions and security settings
+
+Last modification dates for tables or columns
+
+Size of tables, number of rows
+
+The database management system (DBMS) itself stores and manages this metadata in a special area often called the data dictionary or system catalog.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Think of a physical library again.
+
+The books on the shelves are the data.
+
+The card catalog (or the computer system's internal records about the books, authors, categories, shelf locations, etc.) is the metadata. It doesn't contain the actual stories from the books, but it tells you about the books so you can find them.
+
+Book Title: "Database Essentials" (data)
+
+Column Name: "Title" (metadata)
+
+Column Data Type: VARCHAR(255) (metadata)
+
+Table Name: "Books" (metadata)
+
+Constraint: "BookID is a Primary Key" (metadata)
+
+What is a domain constraint?
+A domain constraint specifies that all values in a column must come from a predefined set of values or a specific data type. It restricts the values that an attribute (column) can take. This ensures data integrity by preventing invalid entries.
+
+Examples of domain constraints:
+
+Data Type: A column defined as INT (integer) can only store whole numbers. A DATE column can only store valid date formats.
+
+Length: A VARCHAR(50) column can only store text up to 50 characters long.
+
+Value Range: A CHECK constraint can ensure a Grade column only accepts values between 0 and 100.
+
+Set of Values: A CHECK constraint can ensure a Status column only accepts 'Active', 'Inactive', or 'Pending'.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+In a Students table, if you have a column for Gender:
+
+A domain constraint would ensure that Gender can only be 'M' (Male), 'F' (Female), or 'O' (Other), and not something like 'X' or 'Elephant'.
+
+If you have a EnrollmentYear column, a domain constraint might ensure that the year is always a four-digit number within a reasonable range (e.g., between 2000 and the current year + 5).
+
+What are constraints in SQL?
+Constraints are rules enforced on data columns of a table to limit the type of data that can go into that column. They are used to enforce data integrity and prevent invalid data from being entered into the database. Constraints can be applied at the column level (on a single column) or at the table level (on multiple columns).
+
+Common types of SQL constraints:
+
+NOT NULL: Ensures that a column cannot have a NULL value. (যেমন: একজন ছাত্রের আইডি নম্বর খালি রাখা যাবে না।)
+
+UNIQUE: Ensures that all values in a column are unique. (যেমন: প্রত্যেক ব্যবহারকারীর ইমেইল আইডি অবশ্যই ভিন্ন হতে হবে।)
+
+PRIMARY KEY: A combination of NOT NULL and UNIQUE, uniquely identifies each row. (যেমন: প্রতিটি বইয়ের একটি অদ্বিতীয় আইডি নম্বর থাকবে।)
+
+FOREIGN KEY: Links two tables together by referencing the primary key of another table. Ensures referential integrity. (যেমন: একটি ধার করা বইয়ের আইডি নম্বর অবশ্যই বইয়ের তালিকা টেবিলে থাকতে হবে।)
+
+CHECK: Ensures that all values in a column satisfy a specific condition. (যেমন: একজন কর্মচারীর বয়স অবশ্যই ১৮ বছরের বেশি হতে হবে।)
+
+DEFAULT: Provides a default value for a column when no value is explicitly specified. (যেমন: নতুন গ্রাহকের স্ট্যাটাস ডিফল্টভাবে 'Active' হবে।)
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+When designing a table for Orders:
+
+SQL
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,                     -- PRIMARY KEY: Unique and NOT NULL
+    CustomerID INT NOT NULL,                     -- NOT NULL: Customer ID cannot be empty
+    OrderDate DATE DEFAULT GETDATE(),            -- DEFAULT: If not specified, uses current date
+    TotalAmount DECIMAL(10, 2) CHECK (TotalAmount >= 0), -- CHECK: Amount must be non-negative
+    OrderStatus VARCHAR(20) UNIQUE               -- UNIQUE: Each order status name is unique (though this might be a bad example for OrderStatus, maybe for OrderNumber?)
+);
+These constraints prevent things like creating an order without a customer, having a negative order amount, or accidentally creating two orders with the same OrderID.
+
+What is a table?
+In a relational database, a table (also called a relation) is a fundamental data structure that organizes data into rows and columns.
+
+Rows (Tuples/Records): Represent a single, complete record of information.
+
+Columns (Attributes/Fields): Represent specific data points or characteristics within each record. Each column has a name and a data type.
+
+Tables are the primary way data is stored and managed in an RDBMS.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Think of a standard spreadsheet (like in Excel).
+
+The entire spreadsheet sheet is a table.
+
+Each row in the spreadsheet represents a single entry (e.g., information about one student, one product, one order).
+
+Each column in the spreadsheet (e.g., "Name", "Age", "City") represents a specific piece of information or attribute about that entry.
+
+What is a tuple?
+A tuple is another name for a row or a record in a relational database table. It represents a single, complete set of related data. Each tuple contains a value for every attribute (column) in the table.
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+In the Students table:
+| StudentID | FirstName | LastName | Email                 |
+| :---------- | :---------- | :--------- | :---------------------- |
+| S001      | Alice       | Smith      | alice.s@example.com     |
+| S002      | Bob         | Johnson    | bob.j@example.com       |
+
+Each horizontal entry is a tuple:
+
+The tuple (S001, Alice, Smith, alice.s@example.com) represents all the information for student S001.
+
+The tuple (S002, Bob, Johnson, bob.j@example.com) represents all the information for student S002.
+
+What is an attribute?
+An attribute is another name for a column or a field in a relational database table. It represents a specific characteristic or property that describes an entity (which is represented by a table). Each attribute has a name and a data type.
+
+Real-life example (বাস্তob জীবনের উদাহরণ):
+In the Students table:
+| StudentID | FirstName | LastName | Email                 |
+| :---------- | :---------- | :--------- | :---------------------- |
+| S001      | Alice       | Smith      | alice.s@example.com     |
+
+StudentID is an attribute.
+
+FirstName is an attribute.
+
+LastName is an attribute.
+
+Email is an attribute.
+
+Each attribute defines a specific type of data that will be stored for every row in the table.
+
+Difference between DELETE, TRUNCATE, and DROP?
+These three SQL commands are all used to remove data or database objects, but they operate at different levels and have different behaviors.
+
+Feature	DELETE	TRUNCATE	DROP
+What it removes	Rows (data) from a table.	All rows (data) from a table.	An entire database object (table, index, view, database, etc.).
+Transaction log	Records each deleted row in the transaction log.	Does not record individual row deletions.	Records the drop operation.
+WHERE clause	Can be used with a WHERE clause to delete specific rows.	Cannot be used with a WHERE clause. Deletes all rows.	Not applicable (removes the object).
+Rollback	Can be rolled back if within a transaction.	Cannot be rolled back (in most cases, unless specifically handled by the DBMS).	Cannot be rolled back.
+Identity/Auto-increment	Resets the identity counter only if all rows are deleted and the table is empty.	Resets the identity (auto-increment) counter.	Removes the table entirely, so no counter exists.
+Performance	Slower for large tables as it logs each row.	Faster for large tables as it deallocates pages.	Fast, as it removes the object definition.
+Effect on structure	Keeps the table structure (schema), indexes, and constraints.	Keeps the table structure (schema), indexes, and constraints.	Removes the entire structure (schema, data, indexes, constraints, triggers).
+Type of Command	DML (Data Manipulation Language)	DDL (Data Definition Language)	DDL (Data Definition Language)
+
+Export to Sheets
+Real-life example (বাস্তব জীবনের উদাহরণ):
+
+Imagine a Customers table in an e-commerce database.
+
+DELETE:
+
+DELETE FROM Customers WHERE CustomerID = 123;
+
+আপনি শুধু একজন নির্দিষ্ট কাস্টমারকে ডেটাবেস থেকে সরাচ্ছেন। (You're removing only a specific customer.)
+
+DELETE FROM Customers;
+
+আপনি টেবিলের সব কাস্টমারকে সরাচ্ছেন, কিন্তু টেবিলের কাঠামো (যেমন, কলামের নাম, তাদের ধরন) রয়ে গেছে। (You're removing all customers, but the table's structure remains.)
+
+যদি ভুল করে সব ডিলিট করে ফেলেন, তাহলে একটি ট্রানজ্যাকশনের মধ্যে থাকলে ROLLBACK করে ফিরিয়ে আনতে পারবেন। (If you accidentally delete all, you can ROLLBACK if it's within a transaction.)
+
+TRUNCATE:
+
+TRUNCATE TABLE Customers;
+
+আপনি টেবিলের সব কাস্টমার ডেটা একবারে মুছে ফেলছেন। টেবিলের কাঠামো থাকছে, কিন্তু ডেটা একদম পরিষ্কার হয়ে যাচ্ছে, যেন নতুন টেবিল তৈরি করেছেন। এটা DELETE থেকে দ্রুত হয় যদি সব ডেটা মুছতে চান, কারণ এটি প্রতিটি রো লগ করে না। (You're wiping all customer data from the table at once. The table structure remains, but the data is completely cleared, like you created a new table. It's faster than DELETE for wiping all data because it doesn't log each row.)
+
+এটি রোলব্যাক করা যায় না। (It usually cannot be rolled back.)
+
+যদি CustomerID একটি অটো-ইনক্রিমেন্ট কলাম হয়, তাহলে TRUNCATE করলে এই কাউন্টার আবার ১ থেকে শুরু হবে। (If CustomerID is an auto-increment column, TRUNCATE will reset its counter to 1.)
+
+DROP:
+
+DROP TABLE Customers;
+
+আপনি Customers টেবিলটিকে তার ডেটা, কাঠামো, ইনডেক্স, কনস্ট্রেইন্ট সবকিছু সহ সম্পূর্ণভাবে ডেটাবেস থেকে সরিয়ে ফেলছেন। টেবিলটি আর থাকবে না। (You're removing the entire Customers table from the database, including its data, structure, indexes, and constraints. The table will no longer exist.)
+
+এটি রোলব্যাক করা যায় না। (It cannot be rolled back.)
+
+যদি আপনার আবার Customers টেবিল দরকার হয়, তাহলে আপনাকে CREATE TABLE কমান্ড দিয়ে নতুন করে এটি তৈরি করতে হবে। (If you need the Customers table again, you'll have to create it from scratch using CREATE TABLE.)
+
+In short:
+
+DELETE is for specific rows or all rows (can rollback, logs).
+
+TRUNCATE is for all rows fast (cannot rollback, resets identity).
+
+DROP is for the entire object (table, view, database etc., cannot rollback).
