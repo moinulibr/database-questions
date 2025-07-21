@@ -383,3 +383,365 @@ A customer complains of performance drop at peak hours — what’s your approac
 You’ve been told to “speed up the app” — where do you start?
 
 What tools or metrics do you use to measure database performance?
+
+
+-----------------------------------
+1. Basic Database Concepts
+What is a Database?
+
+What is a DBMS?
+
+What are the functions of DBMS?
+
+Difference between DBMS and RDBMS?
+
+What is SQL?
+
+Difference between SQL and NoSQL?
+
+What is a primary key?
+
+What is a foreign key?
+
+What is a unique key?
+
+Difference between unique key and primary key?
+
+What is a composite key?
+
+What is a super key?
+
+What is a candidate key?
+
+What is a surrogate key?
+
+What is a schema?
+
+What is a view?
+
+What is metadata?
+
+What is a domain constraint?
+
+What are constraints in SQL?
+
+What is a table?
+
+What is a tuple?
+
+What is an attribute?
+
+Difference between DELETE, TRUNCATE, and DROP?
+
+Difference between WHERE and HAVING?
+
+Difference between IN and EXISTS?
+
+Difference between UNION and UNION ALL?
+
+What is a subquery?
+
+What is a correlated subquery?
+
+Difference between JOIN and UNION?
+
+What are the types of JOINs in SQL?
+
+What is a self join?
+
+What is a cross join?
+
+What is a natural join?
+
+What is a Cartesian product?
+
+2. SQL Command Categories
+What are DDL, DML, DCL, and TCL?
+
+Difference between DML and DDL?
+
+Examples of DDL commands?
+
+Examples of DML commands?
+
+What is COMMIT and ROLLBACK?
+
+What is SAVEPOINT?
+
+What is GRANT and REVOKE?
+
+3. Normalization
+What is normalization?
+
+Why is normalization important?
+
+Types of normal forms (1NF, 2NF, 3NF, BCNF)?
+
+1NF with example?
+
+2NF with example?
+
+3NF with example?
+
+What is BCNF?
+
+What is functional dependency?
+
+What is transitive dependency?
+
+What is partial dependency?
+
+What is denormalization?
+
+Difference between normalization and denormalization?
+
+Advantages of normalization?
+
+Disadvantages of normalization?
+
+What is redundancy?
+
+4. Indexing & Query Performance
+What is an index?
+
+How do indexes improve performance?
+
+What is a clustered index?
+
+What is a non-clustered index?
+
+Difference between clustered and non-clustered index?
+
+What is a covering index?
+
+What are composite indexes?
+
+What is index cardinality?
+
+When to avoid indexes?
+
+What is query optimization?
+
+What is a query plan / execution plan?
+
+What is EXPLAIN / EXPLAIN ANALYZE?
+
+How to identify slow queries?
+
+How to optimize JOIN queries?
+
+How does caching help performance?
+
+How to avoid full table scans?
+
+Difference between sequential scan and index scan?
+
+What is index selectivity?
+
+5. Data Integrity & Constraints
+What is data integrity?
+
+What is referential integrity?
+
+What are NOT NULL, UNIQUE, CHECK, DEFAULT constraints?
+
+What is a default constraint?
+
+What is a check constraint?
+
+What is ON DELETE CASCADE?
+
+What is ON UPDATE CASCADE?
+
+What is constraint violation?
+
+How do constraints help maintain quality?
+
+6. Transactions & ACID
+What is a database transaction?
+
+What are ACID properties?
+
+What is atomicity?
+
+What is consistency?
+
+What is isolation?
+
+What is durability?
+
+What is isolation level?
+
+Types of isolation levels?
+
+What is locking?
+
+Difference: optimistic vs pessimistic locking?
+
+What is a deadlock?
+
+How to prevent deadlocks?
+
+Difference: shared lock vs exclusive lock?
+
+7. Stored Procedures, Triggers & Functions
+What is a stored procedure?
+
+What is a function in SQL?
+
+Difference between procedure and function?
+
+What are triggers?
+
+Types of triggers (BEFORE, AFTER)?
+
+Use cases of triggers?
+
+What is a cursor?
+
+Difference: implicit vs explicit cursor?
+
+8. Advanced / Real-World Database Design
+How to design a multi-tenant system?
+
+How to design an e-commerce DB?
+
+How to build an order management system?
+
+How to store audit trails / logs?
+
+What is schema migration?
+
+What is data migration?
+
+How to handle large datasets?
+
+What is horizontal scaling?
+
+What is vertical scaling?
+
+What is replication?
+
+What is master-slave replication?
+
+What is sharding?
+
+What is partitioning?
+
+What is a materialized view?
+
+What is a trigger log table?
+
+How to model many-to-many relationships?
+
+How to handle optional relationships in database schema?
+
+9. NoSQL / MongoDB / Redis
+What is NoSQL?
+
+Types of NoSQL (document, key-value, column, graph)?
+
+When to use NoSQL over SQL?
+
+What is MongoDB?
+
+What is a document in MongoDB?
+
+What is a collection?
+
+What is ObjectId?
+
+What is the Aggregation Pipeline?
+
+What is MapReduce?
+
+What is indexing in MongoDB?
+
+What is a TTL index?
+
+What is a capped collection?
+
+Embedded vs Referenced documents?
+
+How to perform joins in MongoDB ($lookup)?
+
+What is Redis?
+
+Use cases of Redis?
+
+Difference: Redis vs MongoDB?
+
+What is cache invalidation?
+
+10. Security, Compliance & Backup
+How to secure sensitive data in DB?
+
+What is SQL Injection?
+
+How to prevent SQL injection?
+
+What is role-based access control (RBAC)?
+
+What is encryption in DBMS?
+
+What is hashing?
+
+What is GDPR?
+
+What is data anonymization?
+
+What is data masking?
+
+What is backup and restore?
+
+What is point-in-time recovery?
+
+Hot vs Warm vs Cold backups?
+
+11. OLTP, OLAP, and Data Warehousing
+What is OLTP?
+
+What is OLAP?
+
+Difference between OLTP and OLAP?
+
+What is a data warehouse?
+
+What is ETL?
+
+Difference: ETL vs ELT?
+
+What is a fact table?
+
+What is a dimension table?
+
+What is a star schema?
+
+What is a snowflake schema?
+
+12. Scenario-Based / Problem Solving
+A report is slow — how to fix it?
+
+10M rows in product table — how to search faster?
+
+How to implement soft delete?
+
+How to permanently delete data safely?
+
+How to rollback accidental DELETE?
+
+How to track changes in DB?
+
+How to audit updates/deletes in sensitive data?
+
+How to reduce DB storage size?
+
+How to store product variants (size/color)?
+
+How to build order system for multi-vendor marketplace?
+
+You’ve been told to “speed up the app” — where do you start?
+
+What tools or metrics do you use to measure database performance?
+
+How to design a scalable DB for dynamic product attributes?
