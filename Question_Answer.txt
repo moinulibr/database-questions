@@ -535,3 +535,26 @@ DELETE is for specific rows or all rows (can rollback, logs).
 TRUNCATE is for all rows fast (cannot rollback, resets identity).
 
 DROP is for the entire object (table, view, database etc., cannot rollback).
+
+
+
+Another
+==========
+ 1. What is a Database?
+Answer (English):
+A database is an organized collection of data that can be easily accessed, managed, and updated. It stores data in a structured format, typically in tables, so that it can be efficiently retrieved and manipulated using a database management system (DBMS).
+
+Bengali Explanation & Real-Life Example:
+ধরা যাক, একটা স্কুল আছে। স্কুলের সকল ছাত্রদের নাম, রোল নম্বর, ক্লাস, গার্ডিয়ানের নাম, ফোন নাম্বার — এইসব তথ্য যদি খাতা কলমে না রেখে কম্পিউটারে রাখা হয়, তবে সেটা হবে একটা ডেটাবেইজ।
+
+এটা হচ্ছে এমন একটা জায়গা (storage system), যেখানে সব তথ্য ঠিকঠাকভাবে সাজানো থাকে — যেন আপনি সহজে খুঁজে পেতে পারেন, আপডেট করতে পারেন, অথবা রিপোর্ট তৈরি করতে পারেন।
+
+🔸 Example:
+A table named students:
+
+id	name	class	phone
+1	Rafiq	5	01700000001
+2	Tanisha	6	01800000002
+3	Akash	5	01900000003
+
+এই তথ্যগুলো সব মিলে একটি ডেটাবেইজ গঠন করে।
