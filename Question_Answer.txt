@@ -596,3 +596,127 @@ Insert, update, delete data
 Ensure data consistency and security
 
 Handle backups and recovery
+
+Difference between WHERE and HAVING?
+Both WHERE and HAVING clauses are used to filter records in SQL queries, but they operate at different stages of the query execution and on different types of data.
+
+WHERE and HAVING উভয় ক্লজই SQL কোয়েরিতে রেকর্ড ফিল্টার করতে ব্যবহৃত হয়, তবে তারা কোয়েরি এক্সিকিউশনের বিভিন্ন ধাপে এবং বিভিন্ন ধরণের ডেটার উপর কাজ করে।
+
+WHERE Clause:
+
+Purpose: Filters individual rows before they are grouped.
+
+উদ্দেশ্য: এটি প্রতিটি একক সারিকে (individual rows) ফিল্টার করে, গ্রুপ করার আগে।
+
+Operates on: Columns that are not aggregated (i.e., columns not used with aggregate functions like SUM(), COUNT(), AVG(), MAX(), MIN()).
+
+কাজ করে: যে কলামগুলি এগ্রিগেট করা হয়নি (যেমন SUM(), COUNT(), AVG(), MAX(), MIN() এর মতো এগ্রিগেট ফাংশন ব্যবহার করা হয়নি) সেই কলামগুলির উপর।
+
+Execution Order: Processed before GROUP BY.
+
+এক্সিকিউশন ক্রম: GROUP BY ক্লজের আগে প্রক্রিয়া করা হয়।
+
+Keywords Allowed: Can use aggregate functions in subqueries but not directly in the WHERE clause.
+
+অনুমোদিত কীওয়ার্ড: এটি সাবকোয়েরিতে এগ্রিগেট ফাংশন ব্যবহার করতে পারে, তবে WHERE ক্লজে সরাসরি ব্যবহার করতে পারে না।
+
+HAVING Clause:
+
+Purpose: Filters groups of rows after they have been grouped by the GROUP BY clause.
+
+উদ্দেশ্য: এটি GROUP BY ক্লজ দ্বারা গ্রুপ করার পরে সারিগুলির গ্রুপকে (groups of rows) ফিল্টার করে।
+
+Operates on: Aggregate functions results or columns present in the GROUP BY clause.
+
+কাজ করে: এগ্রিগেট ফাংশনের ফলাফলের উপর অথবা GROUP BY ক্লজে থাকা কলামগুলির উপর।
+
+Execution Order: Processed after GROUP BY and before ORDER BY.
+
+এক্সিকিউশন ক্রম: GROUP BY এর পরে এবং ORDER BY এর আগে প্রক্রিয়া করা হয়।
+
+Keywords Allowed: Can use aggregate functions directly.
+
+অনুমোদিত কীওয়ার্ড: সরাসরি এগ্রিগেট ফাংশন ব্যবহার করতে পারে।
+
+Analogy (তুলনা):
+Imagine you have a basket of fruits, and you want to select some.
+আপনার কাছে ফলের একটি ঝুড়ি আছে, এবং আপনি কিছু ফল নির্বাচন করতে চান।
+
+WHERE (Individual Fruit Selection): "Pick out all the red apples from the basket." Here, you are looking at each apple individually before deciding to keep it or not. You are filtering individual items based on their properties.
+
+WHERE (ব্যক্তিগত ফল নির্বাচন): "ঝুড়ি থেকে সমস্ত লাল আপেল বেছে নাও।" এখানে, আপনি প্রতিটি আপেলকে আলাদাভাবে দেখছেন এটি রাখবেন কিনা তা সিদ্ধান্ত নেওয়ার আগে। আপনি প্রতিটি আইটেমকে তাদের বৈশিষ্ট্য অনুসারে ফিল্টার করছেন।
+
+HAVING (Grouped Fruit Selection): "Group the fruits by their type (apples, bananas, oranges). Now, from these groups, select only those groups that have more than 5 fruits." Here, you first group the fruits, and then you apply a condition to these groups (not individual fruits).
+
+HAVING (গ্রুপ করা ফল নির্বাচন): "ফলগুলিকে তাদের প্রকার (আপেল, কলা, কমলা) অনুসারে গ্রুপ করুন। এখন, এই গ্রুপগুলি থেকে, শুধুমাত্র সেই গ্রুপগুলি নির্বাচন করুন যেগুলিতে ৫টির বেশি ফল আছে।" এখানে, আপনি প্রথমে ফলগুলিকে গ্রুপ করছেন, এবং তারপর আপনি এই গ্রুপগুলির (ব্যক্তিগত ফলের নয়) উপর একটি শর্ত প্রয়োগ করছেন।
+
+Real-life example (বাস্তব জীবনের উদাহরণ):
+Consider a Sales table:
+একটি Sales টেবিল বিবেচনা করুন:
+
+SaleID	Region	Product	Amount	SaleDate
+1	East	Laptop	1200	2025-01-10
+2	West	Mouse	25	2025-01-11
+3	East	Keyboard	75	2025-01-12
+4	North	Laptop	1500	2025-01-10
+5	East	Laptop	1100	2025-01-13
+6	West	Mouse	30	2025-01-14
+
+Export to Sheets
+Using WHERE: Find all sales in the 'East' region with an amount greater than 100.
+WHERE ব্যবহার করে: 'East' অঞ্চলের সমস্ত বিক্রয় খুঁজুন যার পরিমাণ ১০০-এর বেশি।
+
+SQL
+
+SELECT SaleID, Product, Amount, Region
+FROM Sales
+WHERE Region = 'East' AND Amount > 100;
+Explanation (ব্যাখ্যা): Here, WHERE directly filters individual sales records before any grouping might occur. It looks at each row and checks if Region is 'East' AND Amount is greater than 100.
+এখানে, WHERE সরাসরি প্রতিটি একক বিক্রয় রেকর্ডকে ফিল্টার করে, কোনো গ্রুপিং হওয়ার আগে। এটি প্রতিটি সারি দেখে এবং পরীক্ষা করে যে Region 'East' এবং Amount ১০০ এর বেশি কিনা।
+
+Output:
+
+SaleID	Product	Amount	Region
+1	Laptop	1200	East
+5	Laptop	1100	East
+
+Export to Sheets
+Using HAVING: Find regions where the total sales amount is greater than 2000.
+HAVING ব্যবহার করে: সেই অঞ্চলগুলি খুঁজুন যেখানে মোট বিক্রয়ের পরিমাণ ২০০০ এর বেশি।
+
+SQL
+
+SELECT Region, SUM(Amount) AS TotalSales
+FROM Sales
+GROUP BY Region
+HAVING SUM(Amount) > 2000;
+Explanation (ব্যাখ্যা):
+
+GROUP BY Region: First, the sales records are grouped by Region.
+
+প্রথমে, বিক্রয় রেকর্ডগুলি Region অনুযায়ী গ্রুপ করা হয়।
+
+SUM(Amount): For each Region group, the total Amount is calculated.
+
+প্রতিটি Region গ্রুপের জন্য, মোট Amount গণনা করা হয়।
+
+HAVING SUM(Amount) > 2000: Finally, HAVING filters these groups (not individual rows) based on the calculated SUM(Amount). Only groups where the sum is greater than 2000 are included.
+
+সবশেষে, HAVING এই গ্রুপগুলিকে (ব্যক্তিগত সারিগুলিকে নয়) SUM(Amount) এর গণনাকৃত মানের উপর ভিত্তি করে ফিল্টার করে। শুধুমাত্র সেই গ্রুপগুলি অন্তর্ভুক্ত করা হয় যেখানে যোগফল ২০০০ এর বেশি।
+
+Intermediate Grouping Results (Before HAVING):
+| Region | SUM(Amount) |
+| :------- | :------------ |
+| East     | 2375          |
+| West     | 55            |
+| North    | 1500          |
+
+Output (After HAVING):
+
+Region	TotalSales
+East	2375
+
+Export to Sheets
+You cannot use WHERE SUM(Amount) > 2000 because WHERE cannot directly filter on aggregate function results.
+আপনি WHERE SUM(Amount) > 2000 ব্যবহার করতে পারবেন না কারণ WHERE সরাসরি এগ্রিগেট ফাংশনের ফলাফলের উপর ফিল্টার করতে পারে না।
+
