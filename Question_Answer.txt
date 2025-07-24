@@ -720,3 +720,4 @@ Export to Sheets
 You cannot use WHERE SUM(Amount) > 2000 because WHERE cannot directly filter on aggregate function results.
 আপনি WHERE SUM(Amount) > 2000 ব্যবহার করতে পারবেন না কারণ WHERE সরাসরি এগ্রিগেট ফাংশনের ফলাফলের উপর ফিল্টার করতে পারে না।
 
+	- Practice - 
