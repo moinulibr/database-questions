@@ -1,0 +1,73 @@
+ Normalization
+
+What is normalization?
+
+Why is normalization important?
+
+Types of normal forms (1NF, 2NF, 3NF, BCNF)?
+
+1NF with example?
+
+2NF with example?
+
+3NF with example?
+
+What is BCNF?
+
+What is functional dependency?
+
+What is transitive dependency?
+
+What is partial dependency?
+
+What is denormalization?
+
+Difference between normalization and denormalization?
+
+Advantages of normalization?
+
+Disadvantages of normalization?
+
+What is redundancy?
+
+4. Indexing & Query Performance
+
+What is an index?
+
+How do indexes improve performance?
+
+What is a clustered index?
+
+What is a non-clustered index?
+
+Difference between clustered and non-clustered index?
+
+What is a covering index?
+
+What are composite indexes?
+
+What is index cardinality?
+
+When to avoid indexes?
+
+What is query optimization?
+
+What is a query plan / execution plan?
+
+What is EXPLAIN / EXPLAIN ANALYZE?
+
+How to identify slow queries?
+
+How to optimize JOIN queries?
+
+How does caching help performance?
+
+How to avoid full table scans?
+
+Difference between sequential scan and index scan?
+
+What is index selectivity?
+
+
+
+answer dewa suru koro. ami chy emn je, sob kichu er e english abr tar bangla meaning o thakbe. Jmn - definition english e thaklo, etr bangla meaning o thaklo.
