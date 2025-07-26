@@ -988,3 +988,184 @@ Deletion Anomalies: If you delete ContactID 1, you might lose Alice's informatio
 
 Normalization aims to eliminate or significantly reduce this redundancy.
 নরমালাইজেশনের লক্ষ্য হলো এই রিডানডেন্সি দূর করা বা উল্লেখযোগ্যভাবে কমানো।
+
+
+-----------------------------------------------------
+
+
+ What is Normalization?
+English Definition:
+Normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.
+
+বাংলা অর্থ:
+নরমালাইজেশন হল একটি ডেটাবেজে ডেটা এমনভাবে সাজানো যাতে অপ্রয়োজনীয় পুনরাবৃত্তি (redundancy) কমে এবং ডেটার গঠনগত মান (integrity) বজায় থাকে।
+
+🔍 Real-life Example (English + Bangla):
+Imagine storing student data. If you repeat the department name for every student in the same department, it's redundancy.
+→ আপনি যদি প্রত্যেক ছাত্রের জন্য "Computer Science" বারবার লেখেন, তাহলে সেটা হল redundancy। নরমালাইজেশন করলে আপনি Department কে আলাদা টেবিলে রাখবেন।
+
+✅ Why is Normalization Important?
+English:
+
+Eliminates data redundancy
+
+Ensures data consistency
+
+Makes database easier to maintain
+
+Saves storage space
+
+Improves data integrity
+
+বাংলা:
+
+ডেটার পুনরাবৃত্তি দূর করে
+
+একই ডেটা একাধিক জায়গায় না থেকে consistency বজায় রাখে
+
+ডেটাবেজ মেইনটেইন করা সহজ হয়
+
+স্টোরেজ সাশ্রয় হয়
+
+সঠিক ডেটা নিশ্চিত করে (Integrity বজায় থাকে)
+
+✅ Types of Normal Forms:
+There are several normal forms, mainly:
+
+Normal Form	Full Form	বাংলা সংক্ষেপ
+1NF	First Normal Form	প্রথম নরমাল ফর্ম
+2NF	Second Normal Form	দ্বিতীয় নরমাল ফর্ম
+3NF	Third Normal Form	তৃতীয় নরমাল ফর্ম
+BCNF	Boyce-Codd Normal Form	বয়েস-কড নরমাল ফর্ম
+
+✅ 1NF (First Normal Form) — with Example
+English Definition:
+A table is in 1NF if:
+
+All columns have atomic (indivisible) values
+
+Each row is unique
+
+There are no repeating groups
+
+বাংলা অর্থ:
+১NF এ একটি টেবিল হতে হলে:
+
+প্রতিটি কলামে এমন ডেটা থাকবে যা ভাঙ্গা যায় না (atomic value)
+
+প্রতিটি রো ইউনিক হতে হবে
+
+একই রো তে রিপিটিং গ্রুপ বা একাধিক মান থাকবে না
+
+📌 Example (Before 1NF):
+
+StudentID	Name	Subjects
+1	Rakib	Math, Physics
+2	Salma	Chemistry
+
+🔧 After 1NF (Each subject in separate row):
+
+StudentID	Name	Subject
+1	Rakib	Math
+1	Rakib	Physics
+2	Salma	Chemistry
+
+✅ 2NF (Second Normal Form) — with Example
+English Definition:
+A table is in 2NF if:
+
+It is in 1NF
+
+All non-key attributes are fully functionally dependent on the primary key (no partial dependency)
+
+বাংলা অর্থ:
+একটি টেবিল ২NF এ থাকতে হলে:
+
+এটা অবশ্যই ১NF এ থাকবে
+
+কোনো কলাম পার্ট অব প্রাইমারি কি এর উপর নির্ভর করবে না (Partial Dependency থাকবে না)
+
+📌 Example (Before 2NF):
+
+StudentID	CourseID	StudentName	CourseName
+1	101	Rakib	Math
+1	102	Rakib	Physics
+
+Here, StudentName depends only on StudentID, not on the full primary key (StudentID, CourseID) → Partial dependency.
+
+🔧 After 2NF:
+
+Students Table:
+
+StudentID	StudentName
+1	Rakib
+
+Courses Table:
+
+CourseID	CourseName
+101	Math
+102	Physics
+
+Enrollment Table:
+
+StudentID	CourseID
+1	101
+1	102
+
+✅ 3NF (Third Normal Form) — with Example
+English Definition:
+A table is in 3NF if:
+
+It is in 2NF
+
+There is no transitive dependency
+
+বাংলা অর্থ:
+একটি টেবিল ৩NF এ থাকতে হলে:
+
+এটা অবশ্যই ২NF এ থাকতে হবে
+
+কোনো ট্রানজিটিভ ডিপেনডেন্সি থাকবে না (A → B → C type)
+
+📌 Example (Before 3NF):
+
+StudentID	StudentName	DeptID	DeptName
+1	Rakib	CSE	Computer Science
+
+Here, DeptName depends on DeptID, not directly on StudentID → Transitive dependency.
+
+🔧 After 3NF:
+
+Students Table:
+
+StudentID	StudentName	DeptID
+1	Rakib	CSE
+
+Departments Table:
+
+DeptID	DeptName
+CSE	Computer Science
+
+✅ What is BCNF?
+English Definition:
+BCNF (Boyce-Codd Normal Form) is a stricter version of 3NF. It removes anomalies not handled by 3NF.
+A table is in BCNF if for every functional dependency X → Y, X is a super key.
+
+বাংলা অর্থ:
+BCNF হল ৩NF এর বেশি শক্তিশালী সংস্করণ। যদি কোনো ফাংশনাল ডিপেনডেন্সি থাকে X → Y, তাহলে X অবশ্যই সুপার কি হতে হবে।
+
+Next up:
+
+✅ What is functional dependency?
+
+✅ What is transitive dependency?
+
+✅ What is partial dependency?
+
+✅ What is denormalization?
+
+✅ Difference between normalization and denormalization?
+
+✅ Advantages & disadvantages
+
+✅ What is redundancy?
