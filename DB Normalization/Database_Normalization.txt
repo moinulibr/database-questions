@@ -5,7 +5,10 @@
 
 3. Normalization
 What is normalization?
-Normalization is a systematic process of organizing the columns and tables of a relational database to minimize data redundancy and improve data integrity. Its main goal is to break down a large table into smaller, well-structured tables and define relationships between them, ensuring that data is stored logically and efficiently.
+
+"Normalization is the process of organizing the columns and tables of a relational database to minimize data redundancy and improve data integrity.
+
+//Normalization is a systematic process of organizing the columns and tables of a relational database to minimize data redundancy and improve data integrity. Its main goal is to break down a large table into smaller, well-structured tables and define relationships between them, ensuring that data is stored logically and efficiently.
 
 নরমালাইজেশন হলো রিলেশনাল ডেটাবেসের কলাম এবং টেবিলগুলিকে সংগঠিত করার একটি পদ্ধতিগত প্রক্রিয়া, যার প্রধান উদ্দেশ্য হল ডেটা রিডানডেন্সি (redundancy) কমানো এবং ডেটা ইন্টিগ্রিটি (integrity) উন্নত করা। এর মূল লক্ষ্য হলো একটি বড় টেবিলকে ছোট, সুসংগঠিত টেবিলগুলিতে বিভক্ত করা এবং তাদের মধ্যে সম্পর্ক স্থাপন করা, যাতে ডেটা যুক্তিসঙ্গতভাবে এবং দক্ষতার সাথে সংরক্ষিত হয়।
 
