@@ -7,7 +7,8 @@ Here's the content in a plain text format, suitable for a note file:
 Normalization
 
 What is normalization?
-Normalization is a systematic approach to organizing the columns and tables of a relational database to minimize data redundancy and improve data integrity.
+Normalization is the process of organizing the columns and tables of a relational database to minimize data redundancy and improve data integrity.
+//Normalization is a systematic approach to organizing the columns and tables of a relational database to minimize data redundancy and improve data integrity.
 নরম্যালাইজেশন (Normalization) হলো একটি রিলেশনাল ডেটাবেসের কলাম এবং টেবিলগুলিকে সুসংগঠিত করার একটি পদ্ধতি, যার প্রধান উদ্দেশ্য হলো ডেটার পুনরাবৃত্তি (redundancy) কমানো এবং ডেটার সঠিকতা (integrity) বৃদ্ধি করা।
 
 Why is normalization important?
