@@ -1,6 +1,3 @@
-ভাই, নিচে আমি তোমার চাওয়া মতো **সব MySQL Data Types** সুন্দরভাবে সাজিয়ে দিয়েছি — full structured table আকারে, Markdown format-এ:
-
----
 
 ### ✅ MySQL Data Types Cheatsheet (with Size, Range, Use Case)
 
@@ -33,14 +30,3 @@
 > 📝 `VARCHAR(n)` actual storage depends on character set and row size — max is 65,535 bytes including row overhead.
 
 ---
-
-🟢 **Now Ready as Markdown!**
-If you want, I can give you this as a downloadable `.md` file or copy it into a document or email template.
-
-Would you like to:
-
-* Download this as `.md` file?
-* Include Bangla explanation column as well?
-* Include comparison between similar types (e.g., `VARCHAR` vs `TEXT`)?
-
-Just let me know.
