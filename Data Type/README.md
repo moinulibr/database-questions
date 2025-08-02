@@ -39,11 +39,10 @@
 * **Range**: Signed এবং Unsigned-এর মধ্যে পার্থক্য হলো, `UNSIGNED` ডেটা টাইপ কেবল ধনাত্মক সংখ্যা (positive number) স্টোর করে, ফলে এর রেঞ্জ দ্বিগুণ হয়ে যায়।
 
 --- 
-**MySQL-এর প্রায় সব সাধারন Data Type** গুলোর জন্য মেমোরি ব্যবহার কেমন হয়
+## **MySQL-এর প্রায় সব সাধারন Data Type** গুলোর জন্য মেমোরি ব্যবহার কেমন হয়
 
---
 
-## 🧠 MySQL Data Types: Memory Usage (NULL vs NOT NULL)
+##  MySQL Data Types: Memory Usage (NULL vs NOT NULL)
 
 MySQL এ একটি ফিল্ড `NULL` হলে মূলত তার জন্য ডাটা রাখা হয় না, কিন্তু প্রতিটি NULL ফিল্ডের জন্য 1-bit ব্যবহৃত হয় **NULL bitmap** এ।
 
@@ -75,7 +74,7 @@ MySQL এ একটি ফিল্ড `NULL` হলে মূলত তার �
 
 ---
 
-## 🔍 কীভাবে NULL ফিল্ড Memory Consume করে?
+##  কীভাবে NULL ফিল্ড Memory Consume করে?
 
 * NULL value নিজে কোনো data রাখে না।
 * তবে প্রতি row তে একটি "NULL bitmap" থাকে, যেখানে প্রতিটি nullable column এর জন্য **1-bit** রাখা হয়।
@@ -83,7 +82,7 @@ MySQL এ একটি ফিল্ড `NULL` হলে মূলত তার �
 
 ---
 
-## 🧪 Example:
+## Example:
 
 ```sql
 CREATE TABLE users (
@@ -103,7 +102,7 @@ CREATE TABLE users (
 
 ---
 
-## 📝 Useful Notes:
+## Useful Notes:
 
 * InnoDB minimum row size = **1 primary key + 1 row header + 1 NULL bitmap**
 * For performance: Avoid unnecessary NULLs in indexed columns.
@@ -111,11 +110,11 @@ CREATE TABLE users (
 
 ---
 
-## ✅ Summary:
+##  Summary:
 
-* ✅ NOT NULL fields = Fixed size or actual value size.
-* ✅ NULL fields = Only 1-bit used in bitmap.
-* ✅ Some large types (TEXT/BLOB) → pointer used if NULL.
+*  NOT NULL fields = Fixed size or actual value size.
+*  NULL fields = Only 1-bit used in bitmap.
+*  Some large types (TEXT/BLOB) → pointer used if NULL.
 
 ---
 
