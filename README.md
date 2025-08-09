@@ -1,6 +1,6 @@
 Here's the complete list of 174 database interview questions formatted.
 
-```markdown
+
 # Database Interview Questions: Comprehensive List (174 Questions)
 
 ## 1. Basic Database Concepts
@@ -69,7 +69,7 @@ Here's the complete list of 174 database interview questions formatted.
 55. Disadvantages of **normalization**?
 56. What is **redundancy**?
 **What is Denormalization?
-**Difference between Normalization and Denormalization
+**Difference between Normalization and Denormalization?
 ---
 
 ## 4. Indexing & Query Performance
@@ -223,4 +223,3 @@ Here's the complete list of 174 database interview questions formatted.
 172. You�ve been told to **�speed up the app�** � where do you start?
 173. What tools or metrics do you use to **measure database performance**?
 174. How to design a scalable DB for **dynamic product attributes**?
-```
