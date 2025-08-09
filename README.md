@@ -1,5 +1,5 @@
 
-# Database Related Interview Questions
+# Database Related Interview Question Lists
 ## 1. Basic Database Concepts
 1. What is a **Database**?
 2. What is a **DBMS**?
@@ -65,8 +65,8 @@
 54. Advantages of **normalization**?
 55. Disadvantages of **normalization**?
 56. What is **redundancy**?
-056. What is **Denormalization**?
-0056. Difference between **Normalization and Denormalization**?
+#### What is **Denormalization**?
+#### Difference between **Normalization and Denormalization**?
 ---
 
 ## 4. Indexing & Query Performance
