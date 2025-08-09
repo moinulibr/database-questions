@@ -65,8 +65,8 @@
 54. Advantages of **normalization**?
 55. Disadvantages of **normalization**?
 56. What is **redundancy**?
-56.1. What is **Denormalization**?
-56.2. Difference between **Normalization and Denormalization**?
+056. What is **Denormalization**?
+0056. Difference between **Normalization and Denormalization**?
 ---
 
 ## 4. Indexing & Query Performance
