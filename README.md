@@ -1,4 +1,4 @@
-Absolutely\! Here's the complete list of 174 database interview questions formatted specifically for a Markdown (.md) file, maintaining the structure with main points and numbered sub-points.
+Here's the complete list of 174 database interview questions formatted.
 
 ```markdown
 # Database Interview Questions: Comprehensive List (174 Questions)
@@ -68,7 +68,8 @@ Absolutely\! Here's the complete list of 174 database interview questions format
 54. Advantages of **normalization**?
 55. Disadvantages of **normalization**?
 56. What is **redundancy**?
-
+**What is Denormalization?
+**Difference between Normalization and Denormalization
 ---
 
 ## 4. Indexing & Query Performance
@@ -209,8 +210,8 @@ Absolutely\! Here's the complete list of 174 database interview questions format
 ---
 
 ## 12. Scenario-Based / Problem Solving
-162. A report is **slow — how to fix it**?
-163. **10M rows in product table — how to search faster**?
+162. A report is **slow ï¿½ how to fix it**?
+163. **10M rows in product table ï¿½ how to search faster**?
 164. How to implement **soft delete**?
 165. How to **permanently delete data safely**?
 166. How to **rollback accidental DELETE**?
@@ -219,7 +220,7 @@ Absolutely\! Here's the complete list of 174 database interview questions format
 169. How to **reduce DB storage size**?
 170. How to store **product variants (size/color)**?
 171. How to build **order system for multi-vendor marketplace**?
-172. You’ve been told to **“speed up the app”** — where do you start?
+172. Youï¿½ve been told to **ï¿½speed up the appï¿½** ï¿½ where do you start?
 173. What tools or metrics do you use to **measure database performance**?
 174. How to design a scalable DB for **dynamic product attributes**?
 ```
